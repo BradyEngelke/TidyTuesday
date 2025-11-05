@@ -183,6 +183,18 @@ cor(franchises2$yr_dif, franchises2$seq_dif) # 0.09
 pre_2010 <- df_plot %>% filter(release_date < as.Date('2011-01-01'))
 mean(pre_2010$rotten_tomatoes) # 95
 
+# latest film rotten tomatoes scores
+# Luca - Original, 91
+# Turning Red - Original, 95
+# Lightyear - Sequel, 74
+# Elemental - Original, 73
+# Inside Out 2 - Sequel, 91
+# Elio - Original, 83
+
+latest_originals_avg_rt <- (91 + 95 + 73 + 83) / 4
+latest_sequels_avg_rt <- (74 + 91) / 2
+
+
 # archive
 ggplot(df_plot2, aes(x=`Film Type`, y=composite_rating)) + 
   geom_violin() + geom_jitter(height = 0, width = 0.08) +
@@ -200,3 +212,5 @@ ggplot(df_plot2, aes(x = composite_rating, y = `Film Type`, fill = `Film Type`, 
   labs(y = element_blank(), x = 'Composite Rating') +
   scale_color_manual(values=c("lightblue2", "orange2")) + 
   scale_fill_manual(values=c("lightskyblue", "orangered")) + xlim(0, 100)
+
+
